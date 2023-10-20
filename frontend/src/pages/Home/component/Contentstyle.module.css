@@ -1,0 +1,74 @@
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
+
+input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 0.3rem;
+}
+
+.picture {
+  position: relative;
+  width: 100%;
+  top: 45px;
+
+}
+
+.rectangleIcon {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+}
+
+.textsearch {
+  position: absolute;
+  display: inline-block;
+  top: 95px ;
+  left: 11%;
+  width: 744px;
+  font-size: 96px;
+  font-family: 'Roboto';
+  color: #ffffff;
+  font-weight: 700;
+  text-shadow: 19px 2px 10px rgba(0, 0, 0, 0.65);
+ 
+}
+
+.textsearch2 {
+  position: absolute;
+  display: inline-block;
+  top: 198px ;
+  left: 12%;
+  width: 744px;
+  font-size: 24px;
+  font-family: 'Roboto';
+  color: #ffffff;
+  font-weight: 680;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.65);
+}
+
+.searchbar {
+  position: absolute;
+  top: 44%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 53px; 
+  width:500px; 
+  border-radius: 30px;
+  box-shadow: 15px 18px 8px rgba(85, 90, 96, 0.207) inset;
+}
+
+.searchbar::placeholder {
+  color: #999; 
+  font-size: 14px;
+  position: absolute;
+}
+
+input:focus {
+  outline: none;
+}
+
