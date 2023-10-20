@@ -1,6 +1,6 @@
 import { Layout } from 'antd';
 //import Taskbar from '../Header/Taskbar';
-import Headers from '../../Detail_package/Header copy/Headers';
+import Headers from '../../Home/component/Header/Headers';
 import Detail from './Detail';
 
 function App() {

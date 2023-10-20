@@ -145,7 +145,7 @@ function Booking() {
                 },
               ]}
               style={{
-                paddingLeft: 200, paddingRight: 200, paddingTop: 80
+                paddingLeft: 200, paddingRight: 200, paddingTop: 40
               }}
             />
           </ConfigProvider>

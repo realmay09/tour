@@ -1,7 +1,7 @@
-import { Layout } from 'antd';
+import { Layout, Button } from 'antd';
 import './Detail.css';
 import './photo.css' ;
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { ExclamationCircleOutlined ,CheckCircleOutlined} from '@ant-design/icons';
 import {useState,useEffect} from "react";
 import {GetPackageById} from "../../../services/http/packageService";
@@ -10,6 +10,8 @@ import { Tourist_attractionInterface } from "../../../interfaces/ITourist_attrac
 import { PackageInterface } from "../../../interfaces/IPackage";
 import { TourAttraction_packageInterface } from "../../../interfaces/ITourattraction_package";
 import {GetTourist_attractions_package, GetTourist_attractions_packageById} from "../../../services/http/tourAttractionPackageService";
+import LoginPopup from '../../Home/component/Header/Components/LoginPopup';
+import { member } from '../../Home/component/Header/Components/LoginPopup';
 
 
 function Detail() {
@@ -94,6 +96,31 @@ function Detail() {
         setSlideIndex(n);
     };
 
+    const navigate = useNavigate();
+    useEffect(() => {
+        const userIsLoggedIn = member ? true : false;
+        setIslogin(userIsLoggedIn);
+    }, [member])
+
+    const [islogin, setIslogin] = useState(false);
+    const [isLoginPopupOpen, setState] = useState(false);
+    const successes = () => {
+        setState(true);
+    }
+    const closePopup = () => {
+        setState(false);
+        setIslogin(false);
+    };
+    const toBooking = () => {
+        if(!islogin){
+            setState(true)  
+        }
+        else{
+            navigate("/booking")
+        }
+
+    }
+
     return(
         <Layout>
             <div className="Layout1">
@@ -174,10 +201,25 @@ function Detail() {
                         
                         <div className='detail'>
                             <a > {Detail} </a>  
-                        </div>
-
-                        <button className="button"><a href="/booking"> Book Now</a></button>
-
+                          
+                            {islogin ? (
+                                <div className='buttonTOBooking_frame'>
+                                <Button className='buttonTOBooking' onClick={toBooking}>
+                                    <a>Book Now</a>
+                                </Button>
+                                </div>
+                            ) : (
+                                <div className='buttonTOBooking_frame'>
+                                <Button className='buttonTOBooking' onClick={() => setState(true)}>
+                                    <a>Book Now</a>
+                                </Button>
+                                </div>
+                            )}
+                            
+                            {isLoginPopupOpen && <LoginPopup onClose={closePopup} />}
+                        
+                        
+                        </div> 
                     </div>
                 </div>
             </div>

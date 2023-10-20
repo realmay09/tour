@@ -63,7 +63,7 @@ function Headers() {
             style={{position:'absolute', margin:'18px -19px',height:'28px'}}/>,
         },
     ];
-    const [current, setCurrent] = useState('home');
+    const [current, setCurrent] = useState('');
     const onClick: MenuProps['onClick'] = (e) => {
         console.log('click ', e);
         setCurrent(e.key);
@@ -157,7 +157,7 @@ function Headers() {
                 </div>
          
                 : <Button className={styles.buttonstyle} style={{ borderRadius: '29px', backgroundColor: '#fc6130' }} type="primary" onClick={successes} size={size}>
-                   <p style={{margin:'-5px', fontFamily: 'Roboto', fontSize: '20px', fontWeight:700, color: 'white'}}>Log in</p>
+                   <p style={{fontFamily: 'Roboto', fontSize: '20px', fontWeight:700, color: 'white', margin:'-5px -3px'}}>Log in</p>
                 </Button>
             }
 

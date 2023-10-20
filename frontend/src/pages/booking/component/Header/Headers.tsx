@@ -1,14 +1,13 @@
-import { Button, ConfigProvider, Menu, MenuProps, Popconfirm, message } from 'antd';
+import { Button, ConfigProvider, Menu, MenuProps } from 'antd';
 import { Header } from 'antd/es/layout/layout';
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
+import LoginPopup from './Components/LoginPopup';
 import logo from './assets/logo.png'
-import carlogo from './assets/โลโก้.png'
 import home from './assets/home.png'
-import loca from './assets/Explore destinations.png'
-import review from './assets/Review.png'
-import contact from './assets/Contact Us.png'
+import loca from './assets/location.png'
+import review from './assets/review.png'
+import contact from './assets/contact.png'
 import styles from './Headers.module.css'
-import './Headers.module.css'
 import { useNavigate } from 'react-router-dom';
 import { SizeType } from 'antd/es/config-provider/SizeContext';
 
@@ -19,34 +18,26 @@ function Headers() {
     const items: MenuProps['items'] = [
         {
             label: 'Home',
-            style:{left:'-5px'},
-    
             key: 'home',
-            icon: <img src={home}
-            style={{position:'absolute', margin:'19px -15px',height:'21px'}} />,
+            icon: <img src={home} />,
         },
         {
             label: 'Explore destinations',
             key: 'app',
-            icon: <img src={loca} 
-            style={{position:'absolute', margin:'19px -12px',height:'21px'}}/>,
+            icon: <img src={loca} />,
         },
         {
             label: 'Review',
-            style:{left:'8px'},
-            key: 'review',
-            icon: <img src={review} 
-            style={{position:'absolute', margin:'19px -15px',height:'21px'}}/>,
+            key: 'SubMenu',
+            icon: <img src={review} />,
         },
         {
             label: 'Contact Us',
-            style:{left:'20px'},
             key: 'contact',
-            icon: <img src={contact} 
-            style={{position:'absolute', margin:'18px -19px',height:'28px'}}/>,
+            icon: <img src={contact} />,
         },
     ];
-    const [current, setCurrent] = useState('home');
+    const [current, setCurrent] = useState('app');
     const onClick: MenuProps['onClick'] = (e) => {
         console.log('click ', e);
         setCurrent(e.key);
@@ -58,39 +49,16 @@ function Headers() {
             console.log('your select contact');
             navigate('/booking');
         }
-        if (e.key == "review") {
-            console.log('your select contact');
-            navigate('/Review');
-        }
-        if (e.key == "contact") {
-            console.log('your select contact');
-            navigate('/ContactUs');
-        }
     };
-
-
     return (
-        <Header className={styles.Headerbar}>
-            <img src={carlogo} alt="Car Icon" style={{ width: '40px', height: '40px', margin: '6px 0px' }} />
-            <h1 style={{ margin: '20px 8px', color: '#FC6130', fontSize: '20px', fontFamily: 'Roboto', fontWeight: 600 }}>Tour in Thailand</h1>
-            
-            <ConfigProvider theme={{ token: { colorPrimary: '#FC6130'} }}>
-                <Menu
-                    className={styles.menu}
-                    onClick={onClick}
-                    selectedKeys={[current]}
-                    mode="horizontal"
-                    items={items}
-                />
+        <Header className={styles.Header}>
+            <img src="./carlogo.png" alt="Car Icon" style={{ width: '76.947px', height: '65.079px', margin:3}} />
+            <h1 style={{marginTop:'32px', color: '#FC6130', fontSize: '23px', fontFamily: 'Roboto', fontWeight: '700',width:170 }}>Tour in Thailand</h1>
+            <ConfigProvider theme={{ token: { colorPrimary: '#FC6130',},}}>
+            <Menu className={styles.menu} onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} />
             </ConfigProvider>
-
-
         </Header>
     );
 }
 
 export default Headers;
-
-
-
-

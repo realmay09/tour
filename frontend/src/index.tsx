@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import Home from './pages/Home/Home';
-import Home2 from './pages/Home2/Home'
 import Booking from './pages/booking/Booking';
 import Register from './pages/Home/component/PageRegister/Register';
 import reportWebVitals from './reportWebVitals';
@@ -15,6 +14,8 @@ import Review from './pages/Reviews/Review';
 import SucessReview from './pages/Reviews/SucessReview'; 
 import ContactUs from './pages/ContactUs/App'
 import Detail_package from './pages/Detail_package/Detail/App'
+import AdminLogin from './pages/AdminLogin/App'
+import AdminDashboard from './pages/AdminDashboard/Home'
 
 const router = createBrowserRouter([
   {
@@ -41,10 +42,7 @@ const router = createBrowserRouter([
     path: "/payment-Admin",
     element: <PaymentAdmin />
   },   
-  {
-    path: "/Home",
-    element: <Home2 />
-  },
+  
   {
     path: "/Booking",
     element: <Booking />
@@ -64,6 +62,14 @@ const router = createBrowserRouter([
   {
     path: "/SucessReview",
     element:<SucessReview/>
+  },
+  {
+    path: "/Admin/Login",
+    element:<AdminLogin/>
+  },
+  {
+    path: "/Admin/Dashboard",
+    element:<AdminDashboard/>
   }
 ])
 
