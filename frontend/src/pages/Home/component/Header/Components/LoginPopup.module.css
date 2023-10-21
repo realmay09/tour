@@ -19,28 +19,31 @@
   width: 100%;
   background-color:none;
   z-index: 10;
+
 }
 
 .login_popup {
   position: sticky;
   top: 50%;
   left: 50%;
+  align-items: center;
   transform: translate(-50%, -50%);
   background: white;
   padding-bottom: 100px;
   padding-top: 200px;
+  padding-left: 15px;
   border: 1px solid #c2c2c2;
   border-radius: 5%;
   box-shadow: 0 0px 14px rgba(0, 0, 0, 0.2);
-  max-width: 28%;
+  max-width: 27%;
 }
 
 .icon {
   position: fixed;
   top: 6%;
-  left: 5%;
+  left: 8%;
   border-radius: 1%;
-  width: 15%;
+  width: 13%;
   height: 11%;
   object-fit: cover;
 }
@@ -59,7 +62,7 @@
 
 .logIn {
   position: relative;
-  top: 43%;
+  top: 38%;
   left: 10%;
   font-size: 70px;
   display: inline-block;
@@ -72,7 +75,7 @@
 
 .getATourContainer {
   position: relative;
-  top: 40%;
+  top: 25%;
   left: 6%;
   font-family: Roboto;
   font-weight: 400;
@@ -80,20 +83,22 @@
 }
 
 .input {
-  position: relative;
-  text-align: center;
-  border-radius: 16px;
+  align-items: center;
+  border-radius: 18px;
   background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) ;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25) ;
   border: 1px solid #c2c2c2;
   box-sizing: border-box;
-  width: 130%;
+  width: 113%;
   height: 40px;
+  left: 0px;
+
 }
 
 .createAccount {
   position: absolute;
-  top: 80%;
+  top: 85%;
+  right: 39%;
   font-size: 14px;
   font-weight: 300;
   font-family: Roboto;
@@ -124,7 +129,7 @@
 }
 
 .user {
-  padding-right: 18%;
+  padding-right: 15%;
   color: #C2C2C2;
 }
 
@@ -144,13 +149,15 @@
 }
 
 .submitstyle {
-  position: relative;
+  position: absolute;
   background-color: #FC6130;
   font-weight: 600;
   padding: 9px 15px;
   font-size: 16px;
   text-align: center;
   color:white;
+  top: 50%;
+  left: 38%;
   border-radius: 29px;
 
 }
@@ -163,5 +170,4 @@
 .checkbox:hover{
   border-color: #FC6130;
   color: #FC6130;
-  border-width: 1px;
 }

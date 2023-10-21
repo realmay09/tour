@@ -12,10 +12,10 @@ function Contact() {
         <a href="line://ti/p/~may_s14"><CommentOutlined  /></a>
         <a href="tel:0952713468"><WhatsAppOutlined /></a>
         <div className='contact'>
-          <p style={{marginLeft:'-400px', position:'absolute'}}>เม ย์ </p>
-          <p style={{marginLeft:'-234px',position:'absolute'}}>yanika3468@gmail.com </p>
-          <p style={{marginLeft:'68px', position:'absolute'}}>@May_s14 </p>
-          <p style={{marginLeft:'295px', position:'absolute'}}>095-271-3468 </p>
+          <p style={{marginLeft:'-394px', position:'absolute'}}>เม ย์ </p>
+          <p style={{marginLeft:'-230px',position:'absolute'}}>yanika3468@gmail.com </p>
+          <p style={{marginLeft:'75px', position:'absolute'}}>@May_s14 </p>
+          <p style={{marginLeft:'300px', position:'absolute'}}>095-271-3468 </p>
         </div>
       </div>
 
@@ -28,4 +28,4 @@ function Contact() {
   );
 }
 
-export default Contact;
+export default Contact; 

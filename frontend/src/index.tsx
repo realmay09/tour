@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import Home from './pages/Home/Home';
-import Booking from './pages/booking/Booking';
+import Booking from './pages/booking/App';
 import Register from './pages/Home/component/PageRegister/Register';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter,RouterProvider,Route,Link } from "react-router-dom";

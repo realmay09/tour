@@ -22,6 +22,7 @@
 .form {
     position: relative;
     left: 5%;
+    top: -13px;
     width: 90%;
     padding-bottom: 80vh;
     background-color: #fff;

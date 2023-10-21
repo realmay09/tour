@@ -4,7 +4,7 @@ import type { SizeType } from 'antd/es/config-provider/SizeContext';
 import Informationgrid from './component/Informationgrid';
 import Note from './component/Note';
 import styles from './Booking.module.css'
-import Headers from './component/Header/Headers';
+import Headers from '../Home/component/Header/Headers';
 import { useNavigate } from 'react-router-dom';
 import { RoomTypeInterface } from '../../interfaces/IRoomType';
 import { GetRoomType } from '../../services/http/roomTypeService';
@@ -145,7 +145,7 @@ function Booking() {
                 },
               ]}
               style={{
-                paddingLeft: 200, paddingRight: 200, paddingTop: 40
+                paddingLeft: 200, paddingRight: 200, paddingTop: 85
               }}
             />
           </ConfigProvider>

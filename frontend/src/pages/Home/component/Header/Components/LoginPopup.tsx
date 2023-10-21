@@ -83,14 +83,14 @@ const LoginPopup: React.FC<LoginPopupProps> = ({ onClose }) => {
           <Title className={styles.logIn}>Log in</Title>
           <div className={styles.closebutton}><CloseOutlined className={styles.textclose} onClick={onClose} /></div>
           <p className={styles.getATourContainer}> 
-            <p style={{fontSize: '16px'}}> Get a Tour in Thailand account and find your joy - <br/></p>
-            <p style={{fontSize: '16px'}}> Wherever you travel in Thailand</p>
+            <p style={{fontSize: '15px'}}> Get a Tour in Thailand account and find your joy - <br/></p>
+            <p style={{fontSize: '15px'}}> Wherever you travel in Thailand</p>
           </p>
         </div>
 
         <div className={styles.user}>
           <Form.Item<FieldType>
-            label="Emailㅤㅤ"
+            label = "Emailㅤㅤ"
             name='email'
             rules={[{ required: true, message: 'Please input your Email!' }]}
           >
@@ -102,7 +102,7 @@ const LoginPopup: React.FC<LoginPopupProps> = ({ onClose }) => {
           </Form.Item>
 
           <Form.Item<FieldType>
-            label="Password"
+            label= "Password"
             name="password"
             rules={[{ required: true, message: 'Please input your password!' }]}
           >
@@ -111,7 +111,7 @@ const LoginPopup: React.FC<LoginPopupProps> = ({ onClose }) => {
           </Form.Item>
         </div>
         
-        <a className={styles.createAccount} onClick={createAccount}> <p style={{marginLeft:'5px'}}> Create account </p></a>
+        <a className={styles.createAccount} onClick={createAccount}> <p> Create account </p></a>
 
         <Form.Item >
           <button className={styles.submitstyle} type='submit'>
