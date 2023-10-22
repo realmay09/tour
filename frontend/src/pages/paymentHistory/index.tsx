@@ -1,4 +1,4 @@
-import Taskbar from '../../pages/booking/component/Header/Headers';
+import Taskbar from '../../pages/Home/component/Header/Headers';
 import { DownOutlined } from '@ant-design/icons';
 import type { ColumnsType } from "antd/es/table";
 import Table from 'antd/es/table';
@@ -92,13 +92,13 @@ function App() {
   
   return (
     <>
-      <div>
+      <div style={{zIndex:1, position: 'absolute'}}>
         <Taskbar />
       </div>
       <div>
-        <div style={{ position: 'relative', marginLeft: '80px', top: '33px', color: '#505050', fontSize: 24, fontFamily: 'Roboto', fontWeight: '700', wordWrap: 'break-word' }}>My bookings</div>
-        <DownOutlined style={{ width: 17, height: 24.75, position: 'absolute', left: 230, top: 128 }} />
-        <div style={{ marginTop: 80, marginLeft: 80, marginBottom: 20, width: 1368, height: '100%', background: 'white', boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)', borderRadius: 43, border: '1px #FC6130 solid' }} >
+        <div style={{ position: 'relative', marginLeft: '80px', top: '100px', color: '#505050', fontSize: 24, fontFamily: 'Roboto', fontWeight: '700', wordWrap: 'break-word' }}>My bookings</div>
+        <DownOutlined style={{ width: 17, height: 24.75, position: 'absolute', left: 230, top: 108 }} />
+        <div style={{ marginTop: 130, marginLeft: 90, marginBottom: 20, width: 1368, height: '100%', background: 'white', boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)', borderRadius: 43, border: '1px #FC6130 solid' }} >
           <div style={{ padding: 50 }}>
             <ConfigProvider theme={{ token: { colorBgContainer: '#F9D9D940',},}}>
               <Table columns={columns} dataSource={Booking } />

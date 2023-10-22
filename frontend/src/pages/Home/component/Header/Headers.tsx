@@ -5,9 +5,9 @@ import { Header } from 'antd/es/layout/layout';
 import React, { useEffect, useState } from 'react'
 import LoginPopup from './Components/LoginPopup';
 import carlogo from './assets/โลโก้.png'
-import logo from './assets/logo.png'
+import avatar from './assets/avata.jpg'
 import home from './assets/home.png'
-import loca from './assets/Explore destinations.png'
+import booking from './assets/booking.png'
 import review from './assets/Review.png'
 import contact from './assets/Contact Us.png'
 import styles from './Headers.module.css'
@@ -20,20 +20,6 @@ function Headers() {
     const navigate = useNavigate();
     const [size] = useState<SizeType>('large'); // default is 'middle'
 
-    const imageUrls = [
-        'cat2.jpg',
-        'avata.jpg',
-        'cat3.jpg',
-        'cat4.jpg',
-        'cat5.jpg',
-      ];
-
-    function getRandomImage() {
-        const randomIndex = Math.floor(Math.random() * imageUrls.length);
-        return imageUrls[randomIndex];
-    }
-    const randomImageUrl = getRandomImage();
-
     const items: MenuProps['items'] = [
         {
             label: 'Home',
@@ -43,10 +29,10 @@ function Headers() {
             style={{position:'absolute', margin:'19px -15px',height:'21px'}} />,
         },
         {
-            label: 'Explore destinations',
+            label: 'My booking',
             key: 'app',
-            icon: <img src={loca} 
-            style={{position:'absolute', margin:'19px -12px',height:'21px'}}/>,
+            icon: <img src={booking} 
+            style={{position:'absolute', margin:'19px -15px',height:'21px'}}/>,
         },
         {
             label: 'Review',
@@ -60,7 +46,7 @@ function Headers() {
             style:{left:'20px'},
             key: 'contact',
             icon: <img src={contact} 
-            style={{position:'absolute', margin:'18px -19px',height:'28px'}}/>,
+            style={{position:'absolute', margin:'18px -21px',height:'28px'}}/>,
         },
     ];
     const [current, setCurrent] = useState('');
@@ -75,7 +61,7 @@ function Headers() {
         }
         if (e.key == "app") {
             console.log('your select contact');
-            navigate('/booking');
+            navigate('/payment-history');
         }
         if (e.key == "review") {
             console.log('your select contact');
@@ -131,16 +117,16 @@ function Headers() {
                 // แสดง Avatar แทนปุ่ม Log out เมื่อผู้ใช้เข้าสู่ระบบ
                 <div>
                     <div className= {styles.avatar} >
-                        <Avatar src= {randomImageUrl} alt= 'phoflie' size={45} icon={<UserOutlined />} />
+                        <Avatar src= {avatar} alt= 'phoflie' size={45} icon={<UserOutlined />} />
                     </div>
 
                     <div className= {styles.Menu}>
                         <button className={styles.dropbtn}> <CaretDownOutlined /></button>
                         <div className={styles.Menucontent}>
-                            <a href="/">Home</a>
-                            <a href="/review">Review </a>
-                            <a href="/booking">My Booking</a>
-                            <a href="/Contact">Contact Us</a>
+                            <a onClick={() =>  navigate('/')}>Home</a>
+                            <a onClick={() =>  navigate('/review')}>Review </a>
+                            <a onClick={() =>  navigate('/payment-history')}>My Booking</a>
+                            <a onClick={() =>  navigate('/Contact')}>Contact Us</a>
                             <Popconfirm
                                  title="Logout"
                                  description="Are you sure to Logout?"

@@ -10,17 +10,10 @@ import (
 // POST members
 func CreateMember(c *gin.Context) {
 	var member entity.Member
-	var country entity.Country
 
 	// bind เข้าตัวแปร member
 	if err := c.ShouldBindJSON(&member); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-		return
-	}
-
-	// ค้นหา countries ด้วย id
-	if tx := entity.DB().Where("id = ?", member.CountryID).First(&country); tx.RowsAffected == 0 {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "Country not found"})
 		return
 	}
 
@@ -29,9 +22,10 @@ func CreateMember(c *gin.Context) {
 		Firstname: member.Firstname,
 		Lastname:  member.Lastname,
 		Email:     member.Email,
-		Country:   country,
+		Country:   member.Country,
 		Password:  member.Password,
 		Phone:     member.Phone,
+		
 	}
 
 	//Save
@@ -46,7 +40,7 @@ func CreateMember(c *gin.Context) {
 func GetMember(c *gin.Context) {
 	var member entity.Member
 	id := c.Param("id")
-	if err := entity.DB().Preload("Country").Raw("SELECT * FROM members WHERE id = ?", id).Find(&member).Error; err != nil {
+	if err := entity.DB().Raw("SELECT * FROM members WHERE id = ?", id).Find(&member).Error; err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
@@ -57,7 +51,7 @@ func GetMember(c *gin.Context) {
 func GetMemberEmail(c *gin.Context) {
 	var member entity.Member
 	email := c.Param("email")
-	if err := entity.DB().Preload("Country").Raw("SELECT * FROM members WHERE email = ?", email).Find(&member).Error; err != nil {
+	if err := entity.DB().Raw("SELECT * FROM members WHERE email = ?", email).Find(&member).Error; err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
@@ -68,11 +62,21 @@ func GetMemberEmail(c *gin.Context) {
 
 func ListMembers(c *gin.Context) {
 	var members []entity.Member
-	if err := entity.DB().Preload("Country").Raw("SELECT * FROM members").Find(&members).Error; err != nil {
+	if err := entity.DB().Raw("SELECT * FROM members").Find(&members).Error; err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
 	c.JSON(http.StatusOK, gin.H{"data": members})
+}
+
+// GET /membernumber
+func CountMembers(c *gin.Context) {
+	var count int64
+	if err := entity.DB().Model(&entity.Member{}).Count(&count).Error; err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+	c.JSON(http.StatusOK, gin.H{"data": count})
 }
 
 // DELETE /members/:id

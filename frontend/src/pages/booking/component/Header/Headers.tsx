@@ -4,9 +4,9 @@ import React, { useState } from 'react'
 import LoginPopup from './Components/LoginPopup';
 import logo from './assets/logo.png'
 import home from './assets/home.png'
-import loca from './assets/location.png'
-import review from './assets/review.png'
-import contact from './assets/contact.png'
+import loca from './assets/Explore destinations.png'
+import review from './assets/Review.png'
+import contact from './assets/Contact Us.png'
 import styles from './Headers.module.css'
 import { useNavigate } from 'react-router-dom';
 import { SizeType } from 'antd/es/config-provider/SizeContext';

@@ -20,6 +20,17 @@ function ContentPackage() {
     }
   };
 
+  const toReview = () => {
+      navigate('/Review');
+  };
+
+  const packageAttractionMapping: { [key: number]: number } = {};
+  packages.forEach((pack, index) => {
+    if (pack.ID !== undefined) {
+      packageAttractionMapping[pack.ID] = index;
+    }
+  });
+
   useEffect(() => {
     // Fetch tourist attractions and packages
     const fetchData = async () => {
@@ -64,11 +75,14 @@ function ContentPackage() {
         </div>
 
       <div className={styles.content}>
-        <p style={{ position: 'relative', top: '-8px', fontSize: '40px', fontFamily: 'Roboto', fontWeight: 700, color: '#505050' }}>POPULAR TOURS</p>
+        <p style={{ position: 'relative', top: '-8px', fontSize: '40px', fontFamily: 'Roboto', fontWeight: 700, color: '#505050' }}> TOURS PACKAGES </p>
         <div className={styles.package_content}>
 
-          {filteredPackages.map((pack, index) => {
-            const attraction = touristAttractions[index]; // Match packages and attractions by index
+        {filteredPackages.map((pack) => {
+          const attractionIndex = pack.ID !== undefined ? packageAttractionMapping[pack.ID] : undefined;
+          if (attractionIndex !== undefined) {
+            const attraction = touristAttractions[attractionIndex];
+
             return (
               <div className={styles.package_item} key={pack.ID} onClick={() => navigateToDetailPackage(pack?.ID)}>
                 <div>
@@ -77,12 +91,14 @@ function ContentPackage() {
 
                 <div className={styles.package_name}>
                   <p style={{ fontSize: '18px' }}>{pack.Name}</p>
-                  <p style={{ fontSize: '18px', fontFamily: 'Roboto' }}>review</p>
+                  <a style={{ fontSize: '18px', fontFamily: 'Roboto', fontWeight: '400' , color:'#505050', position:'relative',zIndex:1}} onClick={(toReview)}>Review</a>
                   <p style={{ fontWeight: '650', fontSize: '40px', fontFamily: 'Roboto' }}>฿ {pack.Pricechil}</p>
                 </div>
               </div>
             );
-          })}
+          }
+        })}
+  
         </div>
       </div>
     </div>

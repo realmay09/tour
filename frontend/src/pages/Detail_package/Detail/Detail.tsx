@@ -216,7 +216,7 @@ function Detail() {
                                 </div>
                             )}
                             
-                            {isLoginPopupOpen && <LoginPopup onClose={closePopup} />}
+                            {isLoginPopupOpen && !islogin  && <LoginPopup onClose={closePopup} />}
                         
                         
                         </div> 

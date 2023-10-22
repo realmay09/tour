@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from './Register.module.css';
-import { Form, Input, Select, message } from 'antd';
+import { Avatar, Form, Input, Select, message } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { CreateMember } from '../../../../services/http/memberService';
 import { MemberInterface } from '../../../../interfaces/IMember'
@@ -11,9 +11,10 @@ type FieldType = {
   firstname?: string;
   lastname?: string;
   email?: string;
-  countryID?: CountryInterface;
+  country?: string;
   password?: string;
   phone?: string
+  Profile?: string
 
 };
 const { Option } = Select;
@@ -44,17 +45,13 @@ function Register() {
         console.error('Error loading countries:', error);
       });
   }, []);
-
-  useEffect(() => {
-    console.log(selectedCountry);
-  }, [selectedCountry]);
-
   const handleCountrySelect = (country: string) => {
     setSelectedCountry(country);
-    console.log(selectedCountry); 
+    console.log(selectedCountry);
   };
 
   const handleConfirmation = async (values: MemberInterface) => {
+    
     let res = await CreateMember(values);
     if (res.status) {
       messageApi.open({
@@ -71,8 +68,13 @@ function Register() {
         type: "error",
         content: "บันทึกข้อมูลไม่สำเร็จ!!",
       });
+      console.log(res)
     }
   };
+
+  useEffect(() => {
+    console.log(selectedCountry);
+  }, [selectedCountry]);
 
   const onFinish = (values: any) => {
     console.log('Success:', values);
@@ -93,7 +95,7 @@ function Register() {
           autoComplete="off"
         >
           <div className={styles.headerstyle}>
-            <title className={styles.login}>Sign In</title>
+            <title className={styles.SignIn}>Sign In</title>
           </div>
 
           <div className={styles.user}>
@@ -137,13 +139,13 @@ function Register() {
               <Input className={styles.input} placeholder="Phone number" />
             </Form.Item>
           </div>
-
           <Form.Item<FieldType>
             label=""
-            name="countryID"
+            name="country"
             rules={[{ required: true, message: 'Please select your country!' }]}
           >
-            <Select 
+            <Select
+            className={styles.selects}
               showSearch
               placeholder="Select Country"
               allowClear
@@ -161,25 +163,25 @@ function Register() {
 
               {sortedCountries.map((country) => (
                 <Option key={country.cca3} value={country.name.common}>
-                {country.name.common} 
+                  {country.name.common}
                 </Option>
               ))}
             </Select>
           </Form.Item>
-
-          <h1></h1>
-          <a className={styles.gotohome} onClick={() => navigate('/')}>Back to Home page</a>
-
-          <Form.Item >
-            {contextHolder}
-            <button className={styles.submitstyle}>
-              Submit
-            </button>
-          </Form.Item>
+          
+          <div style={{ marginTop: 120 }}>
+            <h1></h1>
+            <a className={styles.gotohome} onClick={() => navigate('/')}>Back to Home page</a>
+            <Form.Item >
+              {contextHolder}
+              <button className={styles.submitstyle}>
+                Submit
+              </button>
+            </Form.Item>
+          </div>
         </Form>
       </div>
     </div>
   );
 }
-
 export default Register;

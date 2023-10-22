@@ -1,99 +1,95 @@
 
 .header {
     position: relative;
-    height: 1200px;
-    background-image: url('https://cdn.pixabay.com/photo/2020/03/21/01/04/thailand-4952409_1280.jpg');
+    overflow: hidden;
+    height: 790px;
+    background-image: url('https://i.pinimg.com/564x/1c/23/ce/1c23ce9813a961b4113ff0c4ec1d0355.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(4px);
     text-align: center;
     align-items: center;
 }
 .filters{
     position: relative;
-    height: 1200px;
+    height: 1050px;
     backdrop-filter: blur(5px);
 }
 .reg_popup {
+
     position: sticky;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: #ffffff11;
-    padding-bottom: 30px;
-    padding-top: 100px;
-    border-radius: 5%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    max-width: 600px;
-    width: 100%;
+    padding-bottom: 0px;
+    max-width: 300px;
     text-align: center;
 }
 
 .headerstyle {
     position: fixed;
-    top: 0%;
-    left: 0%;
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
+    top: -20%;
+    left: -3%;
     height: 100px;
     max-width: 600px;
     width: 100%;
 }
 
-.login {
+.SignIn {
     position: relative;
-    top: 0;
+    top: 65px;
     font-size: 64px;
-    display: inline-block;
-    font-family: 'Roboto', sans-serif;
+    display: inline;
+    font-family: 'Roboto';
     font-weight: 700;
     color: #ffffff;
     text-align: center;
     width: 100%;
-    text-shadow: 0px 4px 4px rgb(0, 0, 0);
 }
 
 .user {
-    padding-right: 13%;
+    padding-right: 10%;
 }
 
 .input {
     position: relative;
     border-radius: 16px;
     background-color: #fff;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
     border: 1px solid #c2c2c2;
     box-sizing: border-box;
     width: 130%;
-    height: 40px;
+    height: 45px;
+    top: 70px;
+    left: -25px;
 }
 
 .selects {
     position: relative;
-    border-radius: 16px;
-    background-color: #fff;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border: 1px solid #c2c2c2;
-    box-sizing: border-box;
-    width: 200px;
+    width: 100px;
+    top:70px;
 }
 
 .gotohome:hover {
-    color: #ff9b7d;
+    color: #e6410f;
 }
 
 .gotohome {
-    color: #ff0000;
+    color: white;
+    position: relative;
+    top: -30px;
 }
 
 
 .submitstyle {
+    position: relative;
     background-color: #FC6130;
     font-weight: 300;
-    color: #ffffff;
-    text-shadow: 0px 2px 2px rgb(0, 0, 0);
+    color: white;
     border-radius: 30px;
+    padding: 10px 20px;
+    top:-15px;
 }
 
 .submitstyle:hover {
